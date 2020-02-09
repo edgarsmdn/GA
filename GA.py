@@ -11,7 +11,7 @@ def GA(f, bounds, max_iter, num_p, best_num, random_num, parents_child, num_chil
     f: Objetive function
     bounds: (list) Bounds on the search domain
     max_iter: (integer) maximum number of iterations for Genetic Algorithm
-    num_p: (integer) Number of particles in the first generation to be created
+    num_p: (integer) Number of initial points at the first random sampling
     best_num: (integer) Number of best particles you want to select in "Selection" stage
     random_num: (integer) Number of random particles you want to select from the rest in "Selection" stage
     parents_child: (integer) Number of parents per child for recombination
@@ -20,9 +20,12 @@ def GA(f, bounds, max_iter, num_p, best_num, random_num, parents_child, num_chil
     traj: (boolean) To output trajectory or not. Default is false
     
     --- output ---
-    best_value: (float) The best value of the funtion found in the optimization
-    best_point: (array) The best point in which the function was evaluated
-    trajectory: (matrix) Column 0: Number of iteration. Column 1: Value for current iteration
+    Optimum: (class) Results with:
+        Optimum.f: (float) The best value of the funtion found in the optimization
+        Optimum.x: (array) The best point in which the function was evaluated
+        Optimum.traj_f: (array) Trajectory of function values
+        Optimum.traj_x: (array) Trajectory of positions
+        Optimum.fGen: (array) Positions of the initial sampling
     '''
     # Initialization
     c_r       = continuos_radius
